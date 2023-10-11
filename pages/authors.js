@@ -15,18 +15,18 @@ export default function Author() {
     getAuthors(user.uid).then(setAuthors);
   };
 
-  // TODO: make the call to the API to get all the books on component render
+  // make the call to the API to get all the books on component render
   useEffect(() => {
     getAllAuthors();
   }, []);
 
   return (
     <div className="text-center my-4">
-      <Link href="/book/new" passHref>
-        <Button>Add A Book</Button>
+      <Link href="/author/new" passHref>
+        <Button>Add An Author</Button>
       </Link>
       <div className="d-flex flex-wrap">
-        {/* TODO: map over auhors here using BookCard component */}
+        {/* map over auhors here using BookCard component */}
         {authors.map((author) => (
           <AuthorCard key={author.firebaseKey} authorObj={author} onUpdate={getAllAuthors} />
         ))}
