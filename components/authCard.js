@@ -19,6 +19,7 @@ function AuthorCard({ authorObj, onUpdate }) {
       <Card.Img variant="top" src={authorObj.image} alt={authorObj.email} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{authorObj.first_name} {authorObj.last_name}</Card.Title>
+        <h6>Email: {authorObj.email}</h6>
         <p className="card-text bold">{authorObj.favorite && <span>❤️<br /></span>}</p>
         {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
         <Link href={`/author/${authorObj.firebaseKey}`} passHref>
