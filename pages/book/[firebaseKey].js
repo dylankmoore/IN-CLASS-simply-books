@@ -1,16 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 import { viewBookDetails } from '../../api/mergedData';
 
 export default function ViewBook() {
   const [bookDetails, setBookDetails] = useState({});
   const router = useRouter();
 
-  // TODO: grab firebaseKey from url
+  // grab firebaseKey from url
   const { firebaseKey } = router.query;
 
-  // TODO: make call to API layer to get the data
+  // make call to API layer to get the data
   useEffect(() => {
     viewBookDetails(firebaseKey).then(setBookDetails);
   }, [firebaseKey]);
@@ -19,6 +21,12 @@ export default function ViewBook() {
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
         <img src={bookDetails.image} alt={bookDetails.title} style={{ width: '300px' }} />
+        <br />
+        <p>
+          <Link href={`/book/edit/${bookDetails.firebaseKey}`} passHref>
+            <Button variant="info">EDIT</Button>
+          </Link>
+        </p>
       </div>
       <div className="text-white ms-5 details">
         <h5>

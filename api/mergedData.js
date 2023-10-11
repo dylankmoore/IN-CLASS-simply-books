@@ -1,6 +1,7 @@
 import { getAuthorBooks, getSingleAuthor, deleteSingleAuthor } from './authorData';
 import { getSingleBook, deleteBook } from './bookData';
 
+// VIEW THE BOOK DETAILS
 const viewBookDetails = (bookFirebaseKey) => new Promise((resolve, reject) => {
   getSingleBook(bookFirebaseKey)
     .then((bookObject) => {
@@ -11,6 +12,7 @@ const viewBookDetails = (bookFirebaseKey) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
+// VIEW THE AUTHOR DETAILS
 const viewAuthorDetails = (authorFirebaseKey) => new Promise((resolve, reject) => {
   Promise.all([getSingleAuthor(authorFirebaseKey), getAuthorBooks(authorFirebaseKey)])
     .then(([authorObject, authorBooksArray]) => {
@@ -18,6 +20,7 @@ const viewAuthorDetails = (authorFirebaseKey) => new Promise((resolve, reject) =
     }).catch((error) => reject(error));
 });
 
+// DELETE AN AUTHOR'S BOOKS
 const deleteAuthorBooks = (authorId) => new Promise((resolve, reject) => {
   getAuthorBooks(authorId).then((booksArray) => {
     console.warn(booksArray, 'Author Books');

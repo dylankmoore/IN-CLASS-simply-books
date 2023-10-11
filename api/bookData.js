@@ -2,7 +2,7 @@ import { clientCredentials } from '../utils/client';
 // API CALLS FOR BOOKS
 
 const endpoint = clientCredentials.databaseURL;
-
+// GET ALL BOOKS
 const getBooks = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/books.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
@@ -15,7 +15,7 @@ const getBooks = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: DELETE BOOK
+// DELETE BOOK
 const deleteBook = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/books/${firebaseKey}.json`, {
     method: 'DELETE',
@@ -28,7 +28,7 @@ const deleteBook = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: GET SINGLE BOOK
+// GET SINGLE BOOK
 const getSingleBook = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/books/${firebaseKey}.json`, {
     method: 'GET',
@@ -41,7 +41,7 @@ const getSingleBook = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: CREATE BOOK
+// CREATE BOOK
 const createBook = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/books.json`, {
     method: 'POST',
@@ -55,7 +55,7 @@ const createBook = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: UPDATE BOOK
+// UPDATE BOOK
 const updateBook = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/books/${payload.firebaseKey}.json`, {
     method: 'PATCH',
@@ -69,6 +69,7 @@ const updateBook = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// GET BOOKS BY AUTHOR
 const getBooksByAuthor = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/books.json?orderBy="author_id"&equalTo="${firebaseKey}"`, {
     method: 'GET',
@@ -81,6 +82,7 @@ const getBooksByAuthor = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// GET BOOKS ON SALE
 const booksOnSale = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/books.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',

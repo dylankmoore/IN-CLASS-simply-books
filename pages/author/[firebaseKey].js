@@ -19,7 +19,7 @@ export default function ViewAuthor() {
         <h5>
           {authorDetails.first_name} {authorDetails.last_name}
           <p>{authorDetails.email}</p>
-          {authorDetails.favorite ? <Button variant="success"> FAVORITE </Button> : ''}
+          {authorDetails?.favorite ? ' 🤍' : ''}
         </h5>
         <Link href={`/author/edit/${authorDetails.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
