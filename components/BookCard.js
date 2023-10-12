@@ -20,7 +20,7 @@ function BookCard({ bookObj, onUpdate }) {
       <Card.Body>
         <Card.Title>{bookObj.title}</Card.Title>
         <p className="card-text bold">{bookObj.sale
-          && <span>🏷️SALE <br /></span> } $ {bookObj.price}
+          && <span><b> 🏷️ SALE </b><br /></span> } $ {bookObj.price}
         </p>
         {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
         <Link href={`/book/${bookObj.firebaseKey}`} passHref>
