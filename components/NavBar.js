@@ -34,6 +34,12 @@ export default function NavBar() {
             <Link passHref href="/author/new">
               <Nav.Link>Create Author</Nav.Link>
             </Link>
+            <Link passHref href="/order/new">
+              <Nav.Link>Create Order</Nav.Link>
+            </Link>
+            <Link passHref href="/orders">
+              <Nav.Link>Orders</Nav.Link>
+            </Link>
             <Button type="button" className="btn-danger" onClick={signOut}>Sign Out</Button>
           </Nav>
         </Navbar.Collapse>
